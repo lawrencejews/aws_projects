@@ -3,11 +3,11 @@ import styles from "./page.module.css";
 import { getSession } from "./utils/getSession";
 import { redirect } from "next/navigation";
 
-export default function Home() {
+export default  async function Home():Promise<JSX.Element> {
 
-  const session: Promise<Session | null> = getSession()
+  const session: Session | null  = await getSession()
   if (!session) {
-    redirect('/')
+    redirect('/login')
   }
 
   return (
