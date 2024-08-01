@@ -3,7 +3,7 @@
 ##### AWS Login
 - Set up your AWS SSO `aws configure sso` then add a SSO start URL and Region.
 - Test out the configurations with AWS s3 `aws s3 ls --profile IacTest`
-- Provide the account information to bootstrap the cloudformation environment `cdk bootstrap aws://135980944300//REGION`
+- NOTE: Provide the account information to bootstrap the cloudformation environment if not listed`cdk bootstrap aws://135980944300//REGION`
 - Configure your aws sso login through the AWS CONSOLE or CLI `aws sso login --profile NAME`
 
 ##### Useful commands

@@ -7,7 +7,7 @@
 ##### AWS Login
 - Set up your AWS SSO `aws configure sso` then add a SSO start URL and Region.
 - Test out the configurations with AWS s3 `aws s3 ls --profile IacTest`
-- Provide the account information to bootstrap the cloudformation environment `cdk bootstrap aws://135980944300//REGION`
+- NOTE: Provide the account information to bootstrap the cloudformation environment if not listed `cdk bootstrap aws://135980944300//REGION`
 - Configure your aws sso login through the AWS CONSOLE or CLI `aws sso login --profile NAME`
 
 #### AWS-Amplify-CDK
@@ -22,8 +22,5 @@ It is a [Maven](https://maven.apache.org/) based project, so you can open this p
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
  NOTE: Create a GITHUB personal token for AWS amplify hosting with permissions for `admin hook`
- - Navigate to AWS Secret Manager and store the personal token 
- * other type of secret
- * Plaintext
- * Secret Name and Save
- * Pass the created key from AWS Secret Manager - ID to the oauthToken `SecretValue`.`secretsManager()`
+ - Navigate to AWS Secret Manager and store the personal token`other type of secret`,`Plaintext` and `Secret Name and Save`
+ - Pass the created key from AWS Secret Manager - ID to the oauthToken `SecretValue`.`secretsManager()`
