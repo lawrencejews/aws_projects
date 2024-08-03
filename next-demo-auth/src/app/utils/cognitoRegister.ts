@@ -22,10 +22,10 @@ export default async function cognitoRegister({ username, password, familyName }
         reject(new Error (err.message) || "Cognito Register Failed!")
       }
 
-      console.log("Cognito Registration result: ", result)
+      // console.log("Cognito Registration result: ", result)
       const response: {userConfirmed: (boolean | undefined)} = {
-        userConfirmed: result?.userConfirmed,
-        userSub: result?.userSub
+        userConfirmed:result?.userConfirmed,
+        userSub:result?.userSub
       }
       // Own Database
       resolve(response)

@@ -82,13 +82,13 @@ public class AwsCdkStack extends Stack {
                 .autoBranchDeletion(true)
                 .platform(Platform.WEB_COMPUTE)  // Set to web compute if SSR
                 .buildSpec(BuildSpec.fromObjectToYaml(
-                        new LinkedHashMap<>(){{
+                        new LinkedHashMap<>(){{ // To preserve the order of items entered
                             put("version", "1.0");
                             put("applications", List.of(
                                 new LinkedHashMap<>() {{
                                     put("appRoot", "next-demo-auth");
                                     put("frontend", new LinkedHashMap<>() {{
-                                        put("buildPath", "demo-demo-auth");
+                                        put("buildPath", "next-demo-auth");
                                         put("phases", new LinkedHashMap<>(){{
                                             put("preBuild", new LinkedHashMap<>(){{
                                                 put("commands", List.of(
@@ -132,7 +132,8 @@ public class AwsCdkStack extends Stack {
                 .build());
         amplifyApp.addEnvironment("COGNITO_ID", userPool.getUserPoolId())
                 .addEnvironment("COGNITO_CLIENT_ID", client.getUserPoolClientId())
-                .addEnvironment("_CUSTOM_IMAGE", "amplify:al2023")
+                .addEnvironment("_CUSTOM_IMAGE", "amplify:al2023") // NEXTJS 14 Support for custom build
+//                .addEnvironment("_CUSTOM_IMAGE", "Amazon Linux: 2023")
                 .addEnvironment("LIVE UPDATES", "[{\"pkg\":\"next-version\",\"type\":\"internal\", \"version\":\"latest\"}]")
                 .addEnvironment("AMPLIFY_MONOREPO_APP_ROOT", "next-demo-auth");
         Branch main = amplifyApp.addBranch("main", BranchOptions.builder()
