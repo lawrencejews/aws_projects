@@ -51,7 +51,7 @@ public class AwsCdkStack extends Stack {
                 ))
                 .build();
 
-        UserPoolClient client = userPool.addClient("next-userpooolclient", UserPoolClientOptions.builder()
+        UserPoolClient client = userPool.addClient("next-userpoolclient", UserPoolClientOptions.builder()
                         .userPoolClientName("next-userpoolclient")
                         .generateSecret(false)
                         .authFlows(AuthFlow.builder()
@@ -72,8 +72,7 @@ public class AwsCdkStack extends Stack {
 
         App amplifyApp = App.Builder.create(this, "demo-amplify-hosting")
                 .appName("demo-amplify-hosting")
-                .sourceCodeProvider(GitHubSourceCodeProvider
-                        .Builder
+                .sourceCodeProvider(GitHubSourceCodeProvider.Builder
                         .create()
                         .owner("lawrencejews")
                         .repository("nextjs-next-auth-aws-cognito-amplify")
